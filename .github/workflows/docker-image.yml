@@ -20,5 +20,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ sercrets.PASSWORD }}
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag nginx_gunicorn_docker_compose:$(date +%s)
-    
+      run: docker build . --file Dockerfile --tag accenmagorgopella/nginx_kubsu:github
+    - name: Push the Docker image
+      run: docker push accenmagorgopella/nginx_kubsu:github
