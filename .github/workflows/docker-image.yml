@@ -18,7 +18,7 @@ jobs:
       uses: docker/login-action@v2
       with:
         username: ${{ secrets.USERNAME }}
-        password: ${{ sercrets.PASSWORD }}
+        password: ${{ secrets.PASSWORD }}
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag accenmagorgopella/nginx_kubsu:github
     - name: Push the Docker image
