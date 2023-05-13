@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8001:80"
+    volumes:
+      - ./index.html:/var/www/html/index.html
+      - ./mysite.conf:/etc/nginx/conf.d/default.conf
+  gunicorn:
+    image: gunicorn
+    expose:
+      - "8000"
+    command: gunicorn wsgi_server:application --bind 0.0.0.0:8000
